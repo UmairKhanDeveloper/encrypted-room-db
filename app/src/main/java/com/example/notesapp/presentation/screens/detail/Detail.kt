@@ -87,7 +87,7 @@ fun Detail(navController: NavController) {
             onSave = {
                 scope.launch {
                     viewModel.insertNote(
-                       title = title,
+                        title = title,
                         description = description
                     )
                     showSaveDialog=false

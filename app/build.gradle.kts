@@ -73,6 +73,14 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.compose.material:material-icons-extended:1.7.2")
 
-    implementation("net.zetetic:android-database-sqlcipher:4.5.4")
-    implementation("androidx.sqlite:sqlite:2.3.1")
+    // Room
+    implementation ("androidx.room:room-runtime:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
+
+// SQLCipher
+    implementation ("net.zetetic:android-database-sqlcipher:4.5.4")
+
+// SQLite support for Room
+    implementation ("androidx.sqlite:sqlite:2.4.0")
 }

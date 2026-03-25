@@ -16,10 +16,13 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -40,6 +43,7 @@ import com.example.notesapp.domain.repository.Repository
 import com.example.notesapp.presentation.navigation.screens
 import com.example.notesapp.presentation.viewmodel.MainViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home(navController: NavController) {
 
@@ -57,7 +61,7 @@ fun Home(navController: NavController) {
     Scaffold(
         containerColor = Color(0xFF1E1E1E),
         topBar = {
-
+            HomeTopBar()
         },
         floatingActionButton = {
             AddNoteFabUI {
@@ -127,4 +131,43 @@ fun AddNoteFabUI(onClick: () -> Unit) {
     ) {
         Icon(Icons.Default.Add, contentDescription = null, tint = Color.White)
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun NotesTopBar() {
+
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = "Notes",
+                fontSize = 22.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HomeTopBar() {
+    CenterAlignedTopAppBar(
+        title = {
+
+                Text(
+                    text = "Notes",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White,
+                    modifier = Modifier.padding(end = 150.dp)
+                )
+
+        },
+        actions = {
+
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color(0xFF1E1E1E)
+        )
+    )
 }

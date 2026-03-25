@@ -18,7 +18,7 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
         val note = Note(
             id = null,
-           title = encryptedTitle,
+            title = encryptedTitle,
             des = encryptedDesc
         )
 
